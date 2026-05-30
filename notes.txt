@@ -1,0 +1,11 @@
+uv pip install submodules/diff-gaussian-rasterization submodules/simple-knn --no-build-isolation
+python train.py --source_path ./TanksAndTemples/Family/ --model_path ./model/output --resolution 1 --iterations 5000 --checkpoint_iterations 5000
+python stylize.py --source_path ./TanksAndTemples/Family/ --model_path ./model/output_stylized --start_checkpoint ./model/output/chkpnt5000.pth --style_img ./styles_imgs/1.jpg --iterations 10000 --checkpoint_iterations 10000 --resolution 1
+python render.py ./model/output_stylized/ --source_path ./TanksAndTemples/Family/
+
+
+First training
+Training progress:  61%|███████████████████████████████████▊                       | 3030/5000 [02:03<01:54, 17.24it/s, Loss=0.1212095]
+
+Second training
+Training progress: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [09:13<00:00,  9.03it/s, Loss=93099243.3442693

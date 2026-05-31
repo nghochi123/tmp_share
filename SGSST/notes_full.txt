@@ -1,0 +1,2 @@
+for img in Caterpillar Family Horse train truck; do python train.py --source_path ./TanksAndTemples/${img}/ --model_path ./model/output_${img} --resolution 1 --iterations 5000 --checkpoint_iterations 5000; done
+for img in Caterpillar Family Horse train truck; do python stylize.py --source_path ./TanksAndTemples/${img}/ --model_path ./model/output_${img}_stylized --start_checkpoint ./model/output_${img}/chkpnt5000.pth --style_img ./styles/${img}_style.jpg --iterations 10000 --checkpoint_iterations 10000 --resolution 1; done

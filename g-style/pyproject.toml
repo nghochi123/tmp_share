@@ -1,0 +1,36 @@
+[project]
+name = "g-style"
+version = "0.1.0"
+requires-python = "~=3.10.0"
+
+dependencies = [
+    "plyfile",
+    "tqdm",
+    "Pillow",
+    "numpy<2",
+    "torch==1.12.1",
+    "torchaudio==0.12.1",
+    "torchvision==0.13.1",
+    "setuptools<81",
+    "gdown>=6.1.0",
+    "open-clip-torch>=2.32.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu116"
+url = "https://download.pytorch.org/whl/cu116"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu116" }
+torchvision = { index = "pytorch-cu116" }
+torchaudio = { index = "pytorch-cu116" }
+diff-gaussian-rasterization = { path = "submodules/diff-gaussian-rasterization" }
+simple-knn = { path = "submodules/simple-knn" }
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = []
